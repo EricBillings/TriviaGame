@@ -13,9 +13,9 @@ let qa = {
     5: ["What is the Capital of New York?", "Albany", "New York City", "Rochester", "A"],
     6: ["What is the Capital of Oklahama?", "Tulsa", "Oklahoma City", "Broken Arrow", "B"],
     7: ["What is the Capital of New Mexico?", "Santa Fe", "Albuquerque", "Ruidoso", "A"],
-    8: ["What is the Capital of Michigan", "Ann Arbor", "Detroit", "Lansing", "C"],
-    9: ["What is the Capital of Florida", "Tallahassee", "Tampa", "Jacksonville", "A"],
-    10: ["What is the Capital of West Virginia", "Wheeling", "Charleston", "Clarksburg", "B"]
+    8: ["What is the Capital of Michigan?", "Ann Arbor", "Detroit", "Lansing", "C"],
+    9: ["What is the Capital of Florida?", "Tallahassee", "Tampa", "Jacksonville", "A"],
+    10: ["What is the Capital of West Virginia?", "Wheeling", "Charleston", "Clarksburg", "B"]
 
 }
 
@@ -42,10 +42,10 @@ $("#stop").click(displayEnd);
 
 function displayEnd() {
     clearInterval(showQuestion);
-    $("#button-container").html(`Correct Answers: ${correct}\u00A0\u00A0\u00A0 Incorrect Answers: ${incorrect}`);
+    $("#button-container").html("");
     $(".choices").hide();
     setTimeout(stopGame, 3000);
-    $("#question").html("Your Scores:");
+    $("#question").html(`Correct: ${correct}\u00A0\u00A0\u00A0 Incorrect: ${incorrect}`);
 
 }
 
@@ -53,6 +53,7 @@ function stopGame() {
     correct = 0;
     incorrect = 0;
     $("#question").html("Click Start to Play Again");
+    $("#scores").html("");
 }
 
 
@@ -93,6 +94,8 @@ function nextQuestion() {
         newButtonC.attr("value", "C");
         newButtonC.html(qa[count][3]);
         $("#button-container").append(newButtonC);
+        $("#scores").html(`Correct ${correct}
+        Incorrect ${incorrect}`)
 
 
 
