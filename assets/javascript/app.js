@@ -3,6 +3,7 @@ let correct = 0;
 let incorrect = 0;
 let answer;
 let gameOn = false;
+let timer = 7;
 
 let qa = {
 
@@ -20,6 +21,8 @@ let qa = {
 }
 
 $(".choices").hide();
+$("#timer").hide();
+
 
 
 $("#start").on("click", function () {
@@ -48,6 +51,7 @@ function displayEnd() {
     setTimeout(stopGame, 3000);
     $("#question").html(`Correct: ${correct}\u00A0\u00A0\u00A0 Incorrect: ${incorrect}`);
     $("#scores").html("");
+
 
 }
 
@@ -99,8 +103,6 @@ function nextQuestion() {
         $("#button-container").append(newButtonC);
         $("#scores").html(`Correct ${correct}
         Incorrect ${incorrect}`)
-
-
 
 
     } else {
