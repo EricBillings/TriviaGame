@@ -1,0 +1,33 @@
+
+
+.choices {
+    padding: 25px;
+    margin: 25px;
+    border-radius: 20px;
+
+}
+
+#question {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 36px;
+    background: pink;
+}
+
+#main-display {
+    background: blue;
+
+}
+
+#button-row {
+    background: green;
+    font-size: 36px;
+}
+
+p {
+    font-size: 60px;
+}
+
+.game-buttons {
+    font-size: 24px;
+}

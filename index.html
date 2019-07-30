@@ -13,22 +13,32 @@
 </head>
 
 <body>
+    <div class="container text-center" id="main-display">
 
-    <h1>Trivia Game</h1>
-    <button id="start">Start Game</button>
-    <button id="stop">Stop Game</button>
-    <container id="button-container">
-        <button class="choices" id="answer-a" value="A"></button>
-    <button class="choices" id="answer-b" value="B"></button>
-    <button class="choices" id="answer-c" value="C"></button>
-    </container>
-
-    <div id="display"></div>    
-    <div id="clock"></div>  
-    <div id="elapsedTime"></div>
+        <div class="row">
+            <div class="col-12">
+                <p>State Capital Trivia </p>
+                <button class="game-buttons" id="start">Start Game</button>
+                <button class="game-buttons" id="stop">Stop Game</button>
+            </div>
+        </div>
 
 
-    
+        <div class="row">
+            <div class="col-12" id="question">
+            </div>
+        </div>
+
+
+        <div class="row" id="button-row">
+            <div class="col-12 block-center" id="button-container">
+            </div>
+        </div>
+
+    </div>
+
+
+
 
 
 
@@ -44,7 +54,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script src="./assets/javascript/app.js"></script>
+    <script src="./assets/javascript/app.js"></script>
 
 </body>
 
