@@ -1,6 +1,8 @@
 let count = 0;
 let correct = 0;
 let incorrect = 0;
+let answer;
+let gameOn = false;
 
 let qa = {
 
@@ -12,22 +14,68 @@ let qa = {
 
 }
 
+$(".choices").hide();
 
-$("#start").click(startGame);
+
+$("#start").on("click", function () {
+    if (gameOn === true) {
+        count = 0;
+        startGame();
+    } else {
+        startGame();
+    }
+
+});
+
+function startGame() {
+    showQuestion = setInterval(nextQuestion, 5000);
+    gameOn = true;
+}
+
+
 $("#stop").click(displayEnd);
-$(".choices").on("click", function () {
-    console.log($(this).attr("value"));
-})
-
-
 
 function displayEnd() {
     clearInterval(showQuestion);
-    $("#display").html("END OF GAME");
+    $("#display").html(`Questions Answered Correctly: ${correct}
+    Questions Answered Incorrectly: ${incorrect}`);
+    $(".choices").hide();
+    $("#answer-a").empty();
+    $("#answer-b").empty();
+    $("#answer-c").empty();
     setTimeout(stopGame, 3000);
+
 }
 
+function stopGame() {
+    correct = 0;
+    incorrect = 0;
+    $("#display").html("Click Start to Begin");
+}
+
+
+$(".choices").on("click", function () {
+    answer = ($(this).attr("value"));
+    console.log(answer);
+    if (answer === qa[count][4]) {
+        correct++;
+        console.log(correct);
+        clearInterval(showQuestion);
+        showQuestion = setInterval(nextQuestion, 5000);
+        nextQuestion();
+    } else {
+        incorrect++;
+        clearInterval(showQuestion);
+        showQuestion = setInterval(nextQuestion, 5000);
+        nextQuestion();
+
+    }
+}
+)
+
 function nextQuestion() {
+    $(".choices").show();
+
     count++;
     if (count < 6) {
         $("#display").html(qa[count][0]);
@@ -36,16 +84,11 @@ function nextQuestion() {
         $("#answer-c").html(qa[count][3]);
 
     } else {
+        $(".choices").hide();
         clearInterval(showQuestion);
         setTimeout(displayEnd, 3000);
     }
 }
 
-function startGame() {
-    showQuestion = setInterval(nextQuestion, 2000);
-}
 
-function stopGame() {
-    $("#display").html("Click Start to Begin");
-}
 
