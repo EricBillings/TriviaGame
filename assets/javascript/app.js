@@ -33,7 +33,8 @@ $("#start").on("click", function () {
 });
 
 function startGame() {
-    showQuestion = setInterval(nextQuestion, 5000);
+    showQuestion = setInterval(nextQuestion, 7000);
+    ($("#question").html("You Will Have 7 Seconds for Each Question"));
     gameOn = true;
 }
 
@@ -46,10 +47,12 @@ function displayEnd() {
     $(".choices").hide();
     setTimeout(stopGame, 3000);
     $("#question").html(`Correct: ${correct}\u00A0\u00A0\u00A0 Incorrect: ${incorrect}`);
+    $("#scores").html("");
 
 }
 
 function stopGame() {
+    clearInterval(showQuestion);
     correct = 0;
     incorrect = 0;
     $("#question").html("Click Start to Play Again");
@@ -62,12 +65,12 @@ $("#button-container").on("click", ".choices", function () {
     if (answer === qa[count][4]) {
         correct++;
         clearInterval(showQuestion);
-        showQuestion = setInterval(nextQuestion, 5000);
+        showQuestion = setInterval(nextQuestion, 7000);
         nextQuestion();
     } else {
         incorrect++;
         clearInterval(showQuestion);
-        showQuestion = setInterval(nextQuestion, 5000);
+        showQuestion = setInterval(nextQuestion, 7000);
         nextQuestion();
 
     }
